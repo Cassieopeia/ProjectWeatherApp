@@ -1,0 +1,101 @@
+body {
+  font-family: sans-serif;
+}
+.container {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  background-color: #e1ecf3;
+
+  border: solid;
+  border-color: rgba(93, 148, 179, 0.507);
+  border-radius: 5px;
+  margin-top: 50px;
+  max-width: 650px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#searchCity {
+  display: inline-block;
+  line-height: 0, 5;
+  padding-bottom: 3px;
+}
+
+#mapMarker {
+  font-size: 25px;
+}
+
+#mapMarker:hover {
+  color: white;
+}
+
+.row {
+  margin: 0 auto;
+}
+
+#celcius-link {
+  text-align: center;
+}
+
+#fahrenheit-link {
+  text-align: center;
+}
+#dateTempbox {
+  text-align: center;
+  border-left: none;
+  border-width: 1.2 px;
+  border-color: white;
+}
+
+h3 {
+  font-size: 30px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+#locationweatherbox {
+  text-align: center;
+  color: rgb(28, 26, 31);
+  background-color: #b6b4c2cc;
+  box-sizing: border-box;
+  width: 295px;
+  height: 250px;
+  border-width: 1.1px;
+  border-left: none;
+  border-radius: 5px;
+  border-color: white;
+  padding-top: 5px;
+}
+
+#curvefront {
+  border-radius: 10px 0px 0px 10px;
+}
+
+#curveback {
+  border-radius: 0px 10px 10px 0px;
+}
+.col-2 {
+  text-align: center;
+  padding: 0px;
+  color: white;
+  background-color: #c9bbc8;
+  width: 16.6%;
+}
+
+h1 {
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+h2 {
+  text-align: center;
+  color: #5d5a6d;
+  font-size: 100px;
+  margin-bottom: 0;
+  padding-top: 10px;
+}
+
+.weather {
+  font-size: 20px;
+  color: rgb(16, 16, 19);
+  padding-top: 10px;
+}

@@ -16,7 +16,7 @@ function presentCity(city) {
   let units = "metric";
   let apiKey = "2716c3510b3081dc1c5d6970d11aa8eb";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
+  
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -43,7 +43,7 @@ function setupLocal(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let units = "metric";
-  let apiKey = "2716c3510b3081dc1c5d6970d11aa8eb";
+  let apiKey = "ed907c3cfcf52f19d3bb20fd1e0f9c16";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showLocal);

@@ -27,11 +27,11 @@ function showTemperature(response) {
 
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = `Humidity ${humidity}%`;
+  currentHumidity.innerHTML = `humidity ${humidity}%`;
 
   let speed = Math.round(response.data.wind.speed);
   let currentSpeed = document.querySelector("#speed");
-  currentSpeed.innerHTML = `Wind ${speed} mph`;
+  currentSpeed.innerHTML = `wind ${speed} km/h`;
 
   let weather = response.data.weather[0].main;
   let currentWeather = document.querySelector("#weatherdis");
@@ -56,11 +56,11 @@ function showLocal(response) {
 
   let humidity = response.data.main.humidity;
   let localHumidity = document.querySelector("#humidity");
-  localHumidity.innerHTML = `Humidity ${humidity}%`;
+  localHumidity.innerHTML = `humidity ${humidity}%`;
 
   let speed = Math.round(response.data.wind.speed);
   let localSpeed = document.querySelector("#speed");
-  localSpeed.innerHTML = `Wind ${speed} mph`;
+  localSpeed.innerHTML = `wind ${speed} km/h`;
 
   let weather = response.data.weather[0].main;
   let localWeather = document.querySelector("#weatherdis");

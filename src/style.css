@@ -4,16 +4,25 @@ body {
 .container {
   display: block;
   font-family: "M PLUS Rounded 1c", sans-serif;
-  background-image: linear-gradient(to top, #f3f0e9 0%, #b2cfdd 100%);
+  background-image: linear-gradient(to top, #5c6979 0%, #a89bb6 100%);
 
   border: solid;
-  border-color: rgba(114, 158, 184, 0.384);
+  border-width: thin;
+  border-color: rgba(125, 147, 160, 0.281);
   border-radius: 5px;
   margin-top: 50px;
-  max-width: 650px;
+  max-width: 665px;
   padding-top: 10px;
   padding-bottom: 10px;
   box-shadow: 5px 4px 8px 2px rgba(0, 0, 0, 0.25);
+}
+
+#text-input {
+  color: white;
+  background-color: rgba(179, 182, 212, 0.527);
+  border-width: thin;
+  border-color: rgba(86, 86, 112, 0.527);
+  border-radius: 5px;
 }
 
 #searchCity {
@@ -24,6 +33,7 @@ body {
 
 #mapMarker {
   font-size: 25px;
+  color: rgb(239, 239, 250);
 }
 
 #mapMarker:hover {
@@ -50,27 +60,28 @@ body {
 
 h3 {
   font-size: 30px;
-  color: #413e50;
+  color: #eff5f8;
   text-transform: uppercase;
   line-height: 1.2;
 }
 
 #weatherdis {
-  color: #413e50;
+  color: #eff5f8;
+  font-size: 25px;
 }
 
 #locationweatherbox {
   text-align: center;
   color: rgb(28, 26, 31);
-  background-color: #41415a1f;
+  background-color: #b0ddf846;
   box-sizing: border-box;
-  width: 295px;
-  height: 250px;
+  width: 311px;
+  height: 260px;
   border-width: 1.1px;
   border-left: none;
   border-radius: 5px;
   border-color: white;
-  padding-top: 5px;
+  padding-top: 10px;
   box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.31);
 }
 
@@ -82,16 +93,22 @@ h3 {
 }
 
 h1 {
+  color: #ffffff;
   font-size: 20px;
   padding-top: 10px;
 }
 
 h2 {
   text-align: center;
-  color: #5d5a6d;
-  font-size: 100px;
-  margin-bottom: 0;
-  padding-top: 10px;
+  color: #eff5f8;
+  font-size: 110px;
+  padding-bottom: 25px;
+  padding-top: 20px;
+}
+
+#humiditySpeed {
+  color: #ffffff;
+  line-height: 5px;
 }
 
 .weather {
@@ -101,10 +118,17 @@ h2 {
 }
 
 #forecastWeekday {
-  box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.31);
-  padding: 0px;
+  box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.349);
+  padding: 1px;
+  padding-bottom: 5px;
   border-radius: 12px 10px 10px 12px;
-  background-color: #c9bbc8;
+  border: solid;
+  border-width: thin;
+  border-color: #6b658656;
+  background-color: #7b92c54d;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  max-width: 622px;
 }
 
 #openSource {

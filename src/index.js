@@ -36,6 +36,10 @@ function showTemperature(response) {
   let weather = response.data.weather[0].main;
   let currentWeather = document.querySelector("#weatherdis");
   currentWeather.innerHTML = `${weather}`;
+  
+  let iconElement = document.querySelector("#bigIcon");
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute ("alt", response.data.weather[0].description);
 }
 
 // Weather local location

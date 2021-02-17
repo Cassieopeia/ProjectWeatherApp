@@ -30,12 +30,12 @@ function showHourly(response) {
   forecastElement.innerHTML = null;
   let forecastHourly = null;
 
-  for (let index= 0; index <6; index++) {
-    forcastHourly = response.data.list[index];
+  for (let index= 0; index < 6; index++) {
+    forecastHourly = response.data.list[index];
     forecastElement.innerHTML += `
      <div class="col-2">
                     <h4> ${formatHours (forecastHourly.dt * 1000)} </h4> <br />
-                    <img src="http://openweathermap.org/img/wn/$%7Bforecast.weather[0].icon%7D@2x.png/> <br />
+                    <img src="http://openweathermap.org/img/wn/$%7Bforecast.weather[0].icon%7D@2x.png"/> <br />
                     ${Math.round(forecastHourly.main.temp)}°C
                 </div>
     `;
@@ -128,7 +128,6 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 h1.innerHTML = `${day} ${hours}:${minutes}`;
-
 
 
 

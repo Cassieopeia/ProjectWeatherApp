@@ -46,7 +46,7 @@ function showHourly(response) {
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let h2 = document.querySelector("#bigTemperature");
-  h2.innerHTML = `${temperature}°C`;
+  h2.innerHTML = `${temperature}`;
 
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#humidity");
@@ -63,6 +63,8 @@ function showTemperature(response) {
   let iconElement = document.querySelector("#bigIcon");
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute ("alt", response.data.weather[0].description);
+
+  celsiusTemperature = response.data.main.temp;
 }
 
 // Weather local location
@@ -82,7 +84,7 @@ function setupLocal(position) {
 function showLocal(response) {
   let temperature = Math.round(response.data.main.temp);
   let localTemp = document.querySelector("#bigTemperature");
-  localTemp.innerHTML = `${temperature}°C`;
+  localTemp.innerHTML = `${temperature}`;
 
   let humidity = response.data.main.humidity;
   let localHumidity = document.querySelector("#humidity");
@@ -99,6 +101,8 @@ function showLocal(response) {
   let localCity = response.data.name;
   let h3 = document.querySelector("h3");
   h3.innerHTML = localCity;
+
+  celsiusTemperature = response.data.main.temp;
 }
 //Local Button
 function getLocal(response) {
@@ -149,5 +153,31 @@ function formatHours(timestamp) {
 
   return `${hours}:${minutes}`;
 }
+
+// Celcius and Fahrenheit
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#bigTemperature");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#bigTemperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 presentCity("Oostende");

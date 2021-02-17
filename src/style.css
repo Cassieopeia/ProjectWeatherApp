@@ -4,7 +4,7 @@ body {
 .container {
   display: block;
   font-family: "M PLUS Rounded 1c", sans-serif;
-  background-image: linear-gradient(to top, #5c6979 0%, #a89bb6 100%);
+  background-image: linear-gradient(to top, #6e7b8a 0%, #b8b8ae 100%);
 
   border: solid;
   border-width: thin;
@@ -58,13 +58,6 @@ body {
   border-color: white;
 }
 
-h3 {
-  font-size: 30px;
-  color: #f1f6f8;
-  text-transform: uppercase;
-  line-height: 1.2;
-}
-
 #weatherdis {
   color: #eff5f8;
   font-size: 25px;
@@ -73,7 +66,7 @@ h3 {
 #locationweatherbox {
   text-align: center;
   color: rgb(28, 26, 31);
-  background-color: #b0ddf846;
+  background-color: #b0ddf82a;
   box-sizing: border-box;
   width: 311px;
   height: 260px;
@@ -106,6 +99,18 @@ h2 {
   padding-top: 20px;
 }
 
+h3 {
+  font-size: 30px;
+  color: #f1f6f8;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
 #humiditySpeed {
   color: #ffffff;
   line-height: 5px;
@@ -117,18 +122,23 @@ h2 {
   padding-top: 10px;
 }
 
-#forecastWeekday {
+#forecast {
   box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.349);
   padding: 1px;
-  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 15px;
   border-radius: 12px 10px 10px 12px;
   border: solid;
   border-width: thin;
   border-color: #6b658656;
-  background-color: #7b92c54d;
+  background-color: #7b92c51f;
   margin-top: 10px;
   margin-bottom: 5px;
   max-width: 622px;
+}
+
+.col-2 {
+  line-height: 0;
 }
 
 #openSource {

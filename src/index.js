@@ -10,7 +10,6 @@ function inputCity(event) {
   h3.innerHTML = `${searchInput.value}`;
   presentCity(searchInput.value);
 }
-
 // Weather in requested City
 function presentCity(city) {
   let units = "metric";
@@ -20,28 +19,30 @@ function presentCity(city) {
   axios.get(apiUrl).then(showTemperature);
 
   
-  apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showHourly);
+   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+   axios.get(apiUrl).then(showHourly);
 }
 
 // Hourly Forecast
 function showHourly(response) {
-  let forecastElement = document.querySelector("#forecastHourly");
+  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
-  let forecastHourly = null;
+  let forecast = null;
 
-  for (let index= 0; index < 6; index++) {
-    forecastHourly = response.data.list[index];
+  for (let index = 0; index < 6; index++) {
+  
+    forecast = response.data.list[index];
     forecastElement.innerHTML += `
      <div class="col-2">
-                    <h4> ${formatHours (forecastHourly.dt * 1000)} </h4> <br />
-                    <img src="http://openweathermap.org/img/wn/$%7Bforecast.weather[0].icon%7D@2x.png"/> <br />
-                    ${Math.round(forecastHourly.main.temp)}°C
+                    <h4> ${formatHours(forecast.dt * 1000)} </h4> <br />
+                    <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
+                    ${Math.round(forecast.main.temp)}°C
                 </div>
+
     `;
   }
 }
-
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let h2 = document.querySelector("#bigTemperature");
@@ -49,11 +50,11 @@ function showTemperature(response) {
 
   let humidity = response.data.main.humidity;
   let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = `humidity ${humidity}%`;
+  currentHumidity.innerHTML = `humidity: ${humidity}%`;
 
   let speed = Math.round(response.data.wind.speed);
   let currentSpeed = document.querySelector("#speed");
-  currentSpeed.innerHTML = `wind ${speed} km/h`;
+  currentSpeed.innerHTML = `wind: ${speed} km/h`;
 
   let weather = response.data.weather[0].main;
   let currentWeather = document.querySelector("#weatherdis");
@@ -73,6 +74,9 @@ function setupLocal(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showLocal);
+
+  apiUrl= `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showHourly);
 }
 
 function showLocal(response) {
@@ -82,11 +86,11 @@ function showLocal(response) {
 
   let humidity = response.data.main.humidity;
   let localHumidity = document.querySelector("#humidity");
-  localHumidity.innerHTML = `humidity ${humidity}%`;
+  localHumidity.innerHTML = `humidity: ${humidity}%`;
 
   let speed = Math.round(response.data.wind.speed);
   let localSpeed = document.querySelector("#speed");
-  localSpeed.innerHTML = `wind ${speed} km/h`;
+  localSpeed.innerHTML = `wind: ${speed} km/h`;
 
   let weather = response.data.weather[0].main;
   let localWeather = document.querySelector("#weatherdis");

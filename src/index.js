@@ -18,6 +18,28 @@ function presentCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   
   axios.get(apiUrl).then(showTemperature);
+
+  
+  apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(showHourly);
+}
+
+// Hourly Forecast
+function showHourly(response) {
+  let forecastElement = document.querySelector("#forecastHourly");
+  forecastElement.innerHTML = null;
+  let forecastHourly = null;
+
+  for (let index= 0; index <6; index++) {
+    forcastHourly = response.data.list[index];
+    forecastElement.innerHTML += `
+     <div class="col-2">
+                    <h4> ${formatHours (forecastHourly.dt * 1000)} </h4> <br />
+                    <img src="http://openweathermap.org/img/wn/$%7Bforecast.weather[0].icon%7D@2x.png/> <br />
+                    ${Math.round(forecastHourly.main.temp)}°C
+                </div>
+    `;
+  }
 }
 
 function showTemperature(response) {
@@ -106,5 +128,23 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 h1.innerHTML = `${day} ${hours}:${minutes}`;
+
+
+
+
+// Hourly time format
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
 
 presentCity("Oostende");
